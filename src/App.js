@@ -13,7 +13,7 @@ class App extends Component {
       cardLoaded: false,
       currentCard: '',
       availableStores: [],
-      limit: 10
+      beerResultLimit: 12
     };
     this.showDetails = this.showDetails.bind(this);
     this.getProductDetails = this.getProductDetails.bind(this);
@@ -73,41 +73,48 @@ class App extends Component {
 
   loadMore() {
     this.setState({
-      limit: this.state.limit + 10
+      beerResultLimit: this.state.beerResultLimit + 12
     })
   }
 
   render() {
-    const { error, isLoaded, beers, cardLoaded, currentCard, availableStores, limit } = this.state;
+    const { error, isLoaded, beers, cardLoaded, currentCard, availableStores, beerResultLimit } = this.state;
     console.log(beers)
     return (
       <div className="App">
-      <h1>Beau's Seasonal</h1>
-        {
-          beers.filter( (beer) => {
-            if (beer.id === 517797 || beer.id === 169334) {return false} return true
-          })
-          .slice(0, limit)
-          .map((beer) => 
-          <div key={beer.id} onClick={() => this.showDetails(beer) }>
-            {beer.name}
-          </div> 
-          )
-        }
-        <div className={beers.length > limit ? "" : "hidden" } onClick={() => this.loadMore()}>Load More</div>
-        <br />
-        {cardLoaded ? 
-          <div>
-            <div>{currentCard.name}</div>
-            <div onClick={() => this.getProductDetails(currentCard.id)}>Show Available Stores</div>
-            {
-              availableStores.map((store) => 
-                <div key={store.id}>{store.name}</div>
-              )
-            }
+        <h1>Beau's Seasonal</h1>
+        <div className="main">
+          <div className="left-side">  
+              {
+                beers.filter( (beer) => {
+                  if (beer.id === 517797 || beer.id === 169334) {return false} return true
+                })
+                .slice(0, beerResultLimit)
+                .map((beer) => 
+                <div className="beercard" key={beer.id} onClick={() => this.showDetails(beer) }>
+                  <img class="beer-img" src={beer.image_thumb_url}/> 
+                  <div className="beercard-title">{beer.name}</div>
+                </div> 
+                )
+              }
+              <br/>
+              <div className={beers.length > beerResultLimit ? "beerloader" : "hidden" } onClick={() => this.loadMore()}>Load More</div>
           </div>
-           
-          : <div>apple</div>}
+          <div className="right-side">
+              {cardLoaded ? 
+                <div>
+                  <div>{currentCard.name}</div>
+                  <div className={availableStores.length > 0 ? "hidden" : ""} onClick={() => this.getProductDetails(currentCard.id)}>Show Available Stores</div>
+                  {
+                    availableStores.map((store) => 
+                      <div key={store.id}>{store.name}</div>
+                    )
+                  }
+                </div>
+                
+                : <div>apple</div>}
+          </div>
+        </div>
       </div>
     );
   }

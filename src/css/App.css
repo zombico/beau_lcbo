@@ -32,8 +32,47 @@ h1 {
   letter-spacing: 0.04em;
 }
 
+.main {
+  display: flex;
+}
+
 .hidden {
   display: none;
+}
+
+.beercard {
+  height: 150px;
+  width: 130px;
+  padding: 10px;
+  margin: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.beer-img {
+  width: 100px;
+  align-self: center;
+}
+.beercard-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.left-side {
+  flex-basis: 75%;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.right-side {
+  flex-basis: 30%;
+}
+
+.beerloader {
+  text-align: center;
+  width: 100%;
+  padding: 12px;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
