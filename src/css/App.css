@@ -1,5 +1,6 @@
 .App {
-  padding: 12px;
+  
+  
 }
 
 .App-logo {
@@ -8,10 +9,15 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  background-color: #F5E0BE;
+  padding: 35px 0px; 
+}
+
+.App-footer {
+  background-color: #F5E0BE;
+  height: 15vh;
+  padding: 20px; 
+  
 }
 
 .App-title {
@@ -27,13 +33,17 @@
   to { transform: rotate(360deg); }
 }
 
-h1 {
+.App-title {
+  text-align: center;
   font-family: 'Abril Fatface', cursive;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
+  font-size: 3em;
 }
 
 .main {
   display: flex;
+  justify-content: center;
+  min-height: 500px;
 }
 
 .hidden {
@@ -41,38 +51,97 @@ h1 {
 }
 
 .beercard {
+  cursor: pointer;
   height: 150px;
-  width: 130px;
-  padding: 10px;
-  margin: 4px;
+  width: 220px;
+  padding: 4px 14px 35px 14px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
+}
+.-selected {
+  border: 1px solid #522C1B;
 }
 .beer-img {
   width: 100px;
   align-self: center;
 }
-.beercard-title {
-  display: flex;
-  justify-content: center;
+.preview-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: bold;
   text-align: center;
-  width: 100%;
+}
+.preview-entry {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  text-align: center;
+}
+.store-entry {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  padding: 10px 10px 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  background: #f1f1f1;  
 }
 
-.left-side {
-  flex-basis: 75%;
-  flex-wrap: wrap;
+.store-entry:hover {
+  background: #F5E0BE;
+}
+.store-entry:last-child {
+  padding-bottom: 10px;
+}
+.preview-img {
+  width: 350px;
+}
+
+.beercard-title {
   display: flex;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  justify-content: center;
+  padding-top: 5px;
+  text-align: center;
+  width: 100%;
 }
 
 .right-side {
-  flex-basis: 30%;
+  background: white;
+  flex-basis: 70%;
+  flex-wrap: wrap;
+  display: flex;
+  padding: 20px;
+  margin-left:50px;
+}
+
+.left-side {
+  flex-basis: 25%;
+  padding: 20px;
+}
+
+.preview {
+  position: sticky;
+  top: 20px;
 }
 
 .beerloader {
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   width: 100%;
+  color: white;
+  background: #522C1B;
   padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  max-height: 20px;
+}
+.beerloader:hover {
+  color: #522C1B;
+  background: white;
+  border: 1px solid #C4A077;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
